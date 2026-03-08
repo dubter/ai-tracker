@@ -4,7 +4,180 @@
 
 ---
 
-# ЧАСТЬ 1 — CLAUDE CODE: НАСТРОЙКА + DEVTRACKER (20 минут)
+## YOUTUBE-МЕТАДАННЫЕ — ЧАСТЬ 1
+
+### Название
+**Я уволил джуна. Теперь за него работает Claude Code | Next.js трекер задач с AI за 20 минут**
+
+A/B варианты:
+- `Claude Code убивает джунов? Строим AI трекер задач с нуля за 20 минут`
+- `4 AI-агента вместо команды — Claude Code + Next.js + Groq за 20 минут`
+
+### Описание
+
+```
+Строим AITracker — трекер задач с AI-приоритизацией — с нуля за 20 минут.
+Без ручного написания кода. Только Claude Code + правильная настройка.
+
+Что построим:
+✓ Next.js 15 + TypeScript strict + Prisma + SQLite
+✓ CRUD через Server Actions с Zod-валидацией
+✓ Кнопка «AI расставит приоритеты» → Groq llama-3.3-70b сортирует задачи
+✓ 4 специализированных агента: Security, DB Optimizer, Test Writer, API Designer
+✓ 12 Vitest тестов, JSDoc, оптимизированные индексы БД
+
+Главная идея: 8 минут настройки → проект строится сам.
+CLAUDE.md + субагенты + MCP + hooks = Claude работает как команда.
+
+⏱ ТАЙМКОДЫ:
+00:00 — Хук: почему обычный ChatGPT — это потери
+00:30 — Что такое Claude Code и чем он лучше
+01:15 — CLAUDE.md + /init: постоянная память проекта
+02:45 — 4 кастомных субагента: Security, DB, Tests, API
+05:15 — .mcp.json + 4 типа памяти (CLAUDE.md / files / compact / mem0)
+07:00 — Hooks (PostToolUse + PreToolUse) + .claudeignore
+08:15 — create-next-app + Prisma (модель Task с parentId)
+09:45 — API Designer → Server Actions архитектура
+11:15 — DB Optimizer → индексы и N+1 запросы
+12:00 — Security Reviewer + hook в действии
+12:45 — Test Writer → 12 Vitest тестов
+13:30 — Plan mode + параллельные субагенты
+14:15 — /compact + self-improve + /commit
+15:15 — AITracker в браузере — финал
+17:45 — Шпаргалка: все команды и флаги
+19:00 — Что дальше (тизер Части 2)
+
+🔗 Ссылки:
+• Исходники: github.com/dubter/ai-tracker
+• Claude Code: claude.ai/code
+• Groq (бесплатный API): console.groq.com
+
+📌 Подпишись — Часть 2 выйдет если наберём 500 лайков.
+Пиши в комментах: А, Б или В — за что голосуешь.
+```
+
+### Теги
+
+```
+claude code, ai coding, next.js 15, typescript, prisma, задачи, трекер задач,
+ai агент, claude ai, groq, llm, server actions, telegram bot, автоматизация,
+программирование 2025, ai разработка, vitest, tailwind css, sqlite,
+claude code tutorial, ai tools, junior developer,
+claude code агент субагент mcp hooks memory
+```
+
+### Превью (описание для дизайнера)
+
+**Текст на превью:**
+```
+Я уволил джуна
+━━━━━━━━━━━━━━
+Теперь Claude Code
+пишет код за него
+```
+
+**Цвета:** фон `#0d1117`, акцент `#7c3aed` (фиолетовый), текст белый
+
+**Промпт Midjourney/DALL-E:**
+```
+Dark tech YouTube thumbnail, split screen: left side developer looking at monitor
+with shocked expression, right side terminal with code auto-typing itself with AI
+glow effect, purple Claude AI logo, dark background #0d1117, bold white Russian
+text overlay, cinematic lighting, 16:9 ratio, high contrast --ar 16:9 --style raw
+```
+
+---
+
+## YOUTUBE-МЕТАДАННЫЕ — ЧАСТЬ 2
+
+### Название
+**Telegram-бот который думает: голос → задача, пересылка → подзадачи | Claude Code + Groq**
+
+A/B варианты:
+- `Telegram-бот за 20 минут: надиктовал — появилось в трекере. Claude Code + Groq Whisper`
+- `AI Telegram-бот: голос + пересылка + дедупликация | Claude Code пишет сам`
+
+### Описание
+
+```
+Подключаем Telegram-бота к AITracker из Части 1.
+Надиктовал задачу голосом — она появилась в трекере.
+Переслал 6 сообщений тимлида — Claude разбил на подзадачи с приоритетами.
+
+Что умеет бот:
+✓ Текст → задача (с автоматическим приоритетом)
+✓ Голосовое → Groq Whisper → задача (транскрипция за <1 сек)
+✓ Пересылка → иерархия подзадач (буфер 30 сек на накопление)
+✓ Дедупликация — не создаёт дубли через смысловой анализ
+✓ Одна БД с AITracker — задачи видны сразу на сайте
+
+Стек: Telegraf.js + Groq Whisper + Groq llama-3.3-70b + Prisma
+Всё бесплатно. Один GROQ_API_KEY на всё.
+
+⏱ ТАЙМКОДЫ:
+00:00 — Хук: утро понедельника, 6 сообщений тимлида
+00:30 — Архитектура бота (схема: Telegram → Groq → Prisma)
+01:30 — bot/CLAUDE.md + BotFather токен
+03:00 — Структура файлов через Claude
+04:30 — Текст → задача (демо: JWT vs молоко)
+06:00 — Голос → Groq Whisper → задача
+08:00 — Пересылка → подзадачи с иерархией
+10:00 — Накопление: 4 сообщения = один контекст
+11:30 — Дедупликация через Groq
+13:00 — Финальный сценарий: утро понедельника
+15:00 — /compact + self-improve для бота
+15:30 — Шпаргалка: архитектурные решения
+16:30 — Итог двух видео
+18:30 — Голосование: что снимаем дальше
+
+🔗 Ссылки:
+• Исходники: github.com/dubter/ai-tracker
+• Groq (бесплатный API): console.groq.com
+• Часть 1: [ссылка]
+
+Пиши А, Б или В:
+А — Деплой на VPS за 20 минут
+Б — Пишем свой MCP сервер
+В — Claude API напрямую без Claude Code
+```
+
+### Теги
+
+```
+telegram bot, telegraf.js, groq whisper, голосовой бот, ai telegram,
+claude code, next.js, prisma, typescript, task manager,
+whisper transcription, llm api, бесплатный ai api, groq api,
+автоматизация задач, ai бот telegram, дедупликация,
+подзадачи telegram, claude code tutorial rus, ai разработка 2025
+```
+
+### Превью (описание для дизайнера)
+
+**Текст на превью:**
+```
+Надиктовал голосом
+━━━━━━━━━━━━━━━━━
+Появилось в трекере
+```
+
+**Промпт Midjourney/DALL-E:**
+```
+Dark YouTube thumbnail, smartphone with Telegram open on left, desktop monitor
+showing task tracker on right, glowing arrow connecting them, purple and blue
+neon glow, dark background, bold white text, tech aesthetic, 16:9 --ar 16:9 --style raw
+```
+
+### Закреплённый комментарий (оба видео)
+
+```
+📌 Исходники: github.com/dubter/ai-tracker
+Часть 1: [ссылка] | Часть 2: [ссылка]
+Вопросы по коду — пишите здесь ↓
+```
+
+---
+
+# ЧАСТЬ 1 — CLAUDE CODE: НАСТРОЙКА + AITRACKER (20 минут)
 
 ## Что строим в Части 1
 
@@ -657,7 +830,7 @@ claude "подведи итог сессии и запиши в
 
 ---
 
-## [15:15–17:45] ФИНАЛ: СМОТРИМ DEVTRACKER
+## [15:15–17:45] ФИНАЛ: СМОТРИМ AITRACKER
 
 ```bash
 npm run dev
@@ -760,7 +933,7 @@ PreToolUse hook        # проверка ПЕРЕД выполнением ко
 ---
 ---
 
-# ЧАСТЬ 2 — TELEGRAM-БОТ ДЛЯ DEVTRACKER (20 минут)
+# ЧАСТЬ 2 — TELEGRAM-БОТ ДЛЯ AITRACKER (20 минут)
 
 ## Что строим в Части 2
 
