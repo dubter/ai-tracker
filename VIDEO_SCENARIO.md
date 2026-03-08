@@ -1,6 +1,6 @@
 # Сценарий: «Я уволил джуна. Теперь за него работает Claude Code»
 
-> YouTube | Два видео по 20 минут | Проект: DevTracker + Telegram Bot
+> YouTube | Два видео по 20 минут | Проект: AITracker + Telegram Bot
 
 ---
 
@@ -8,7 +8,7 @@
 
 ## Что строим в Части 1
 
-**DevTracker** — трекер задач с AI-приоритизацией.
+**AITracker** — трекер задач с AI-приоритизацией.
 
 Стек: Next.js 15 · TypeScript · Prisma · SQLite · Claude API · Tailwind CSS
 
@@ -42,7 +42,7 @@
 | Plan mode | 0:45 |
 | Параллельные субагенты | 0:45 |
 | /compact + self-improve + /commit | 1:00 |
-| Финал: DevTracker в браузере | 1:30 |
+| Финал: AITracker в браузере | 1:30 |
 | Тизер Части 2 + призыв | 1:00 |
 | **Итого** | **~20 мин** |
 
@@ -57,7 +57,7 @@
 >
 > Потрать 8 минут на настройку — и проект строится сам.
 > Четыре специализированных агента, MCP, hooks, память.
-> А потом смотришь как DevTracker с нуля собирается одной командой."
+> А потом смотришь как AITracker с нуля собирается одной командой."
 
 ---
 
@@ -81,7 +81,7 @@ npm install -g @anthropic-ai/claude-code
 claude --version
 
 # Создаём папку — но код не пишем сразу
-mkdir devtracker && cd devtracker
+mkdir aitracker && cd aitracker
 ```
 
 > "Инструменты: Read, Edit, Write — файлы.
@@ -120,7 +120,7 @@ touch CLAUDE.md
 ```
 
 ```markdown
-# DevTracker
+# AITracker
 
 ## Описание
 Трекер задач с AI-приоритизацией и Telegram-ботом.
@@ -329,7 +329,7 @@ touch .mcp.json
 ├─────────────────────────────────────────────────────────┤
 │ Тип 2: Memory files                                     │
 │ → Динамические решения: почему выбрали SQLite, etc.     │
-│ → ~/.claude/projects/devtracker/memory/MEMORY.md        │
+│ → ~/.claude/projects/aitracker/memory/MEMORY.md        │
 │ → Claude пишет туда сам по команде                      │
 ├─────────────────────────────────────────────────────────┤
 │ Тип 3: /compact (compact rewind)                        │
@@ -646,13 +646,13 @@ claude "обнови CLAUDE.md: добавь правило —
 
 ```bash
 claude "подведи итог сессии и запиши в
-~/.claude/projects/devtracker/memory/MEMORY.md:
+~/.claude/projects/aitracker/memory/MEMORY.md:
 что сделали, какие решения приняли, что осталось"
 ```
 
 ```bash
 /commit
-# → feat: add DevTracker MVP with AI task prioritization
+# → feat: add AITracker MVP with AI task prioritization
 ```
 
 ---
@@ -663,7 +663,7 @@ claude "подведи итог сессии и запиши в
 npm run dev
 ```
 
-*[Показываем DevTracker в браузере]*
+*[Показываем AITracker в браузере]*
 
 > "С нуля за 20 минут видео:
 >
@@ -754,7 +754,7 @@ PreToolUse hook        # проверка ПЕРЕД выполнением ко
 | Параллельные | Экран | 3 терминала тайлом |
 | /compact | Экран | Терминал |
 | Self-improve | Экран | CLAUDE.md после |
-| Финал | Экран | DevTracker в браузере |
+| Финал | Экран | AITracker в браузере |
 | Шпаргалка | Слайд/Экран | Список команд |
 
 ---
@@ -764,7 +764,7 @@ PreToolUse hook        # проверка ПЕРЕД выполнением ко
 
 ## Что строим в Части 2
 
-**DevTracker Bot** — Telegram-бот который:
+**AITracker Bot** — Telegram-бот который:
 
 1. **Текст → задача**: пишешь боту → задача появляется в трекере
 2. **Голос → задача**: говоришь голосовым → Groq Whisper → задача
@@ -772,7 +772,7 @@ PreToolUse hook        # проверка ПЕРЕД выполнением ко
 4. **Накопление**: несколько пересланных сообщений за 30 сек → разбирает вместе как один контекст
 5. **Дедупликация**: перед созданием проверяет — такая задача уже есть?
 
-Стек: Telegraf.js · Groq Whisper API · Groq llama-3.3-70b · Prisma (shared с DevTracker)
+Стек: Telegraf.js · Groq Whisper API · Groq llama-3.3-70b · Prisma (shared с AITracker)
 
 ---
 
@@ -801,7 +801,7 @@ PreToolUse hook        # проверка ПЕРЕД выполнением ко
 
 *[Говорящая голова]*
 
-> "В прошлом видео построили DevTracker. Сегодня — Telegram-бот к нему.
+> "В прошлом видео построили AITracker. Сегодня — Telegram-бот к нему.
 >
 > Итог: надиктовываешь задачу голосом — она появляется в трекере.
 > Пересылаешь пачку сообщений тимлида —
@@ -834,7 +834,7 @@ Telegram
                                                   │
                                              Prisma ORM
                                                   │
-                                        SQLite — та же БД что DevTracker
+                                        SQLite — та же БД что AITracker
                                                   │
                                          Задачи видны на сайте ✓
 ```
@@ -853,10 +853,10 @@ touch bot/CLAUDE.md
 ```
 
 ```markdown
-# DevTracker Bot
+# AITracker Bot
 
 ## Контекст модуля
-Telegram-бот для DevTracker. Читай корневой CLAUDE.md для общего контекста.
+Telegram-бот для AITracker. Читай корневой CLAUDE.md для общего контекста.
 
 ## Специфика бота
 - Telegraf.js v4, TypeScript strict
@@ -877,8 +877,8 @@ Telegram-бот для DevTracker. Читай корневой CLAUDE.md для 
 
 ```
 1. Открыть @BotFather → /newbot
-2. Название: DevTracker Bot
-3. Username: devtracker_tasks_bot
+2. Название: AITracker Bot
+3. Username: aitracker_tasks_bot
 4. Получить токен: 7234567890:AAHdq...
 ```
 
@@ -949,7 +949,7 @@ claude "реализуй bot/handlers/text.ts:
 📋 Статус: TODO
 ```
 
-*[Открываем DevTracker — задача появилась мгновенно]*
+*[Открываем AITracker — задача появилась мгновенно]*
 
 ```
 Пишем боту: "купить молоко"
@@ -1182,7 +1182,7 @@ claude "реализуй bot/services/dedup.ts:
 Уже было в трекере: 1
 ```
 
-*[Открываем DevTracker — все задачи структурированы, с приоритетами]*
+*[Открываем AITracker — все задачи структурированы, с приоритетами]*
 
 > "30 секунд работы — полный план дня структурирован.
 > Без ручного создания каждой задачи."
@@ -1223,11 +1223,11 @@ cd bot && npx ts-node index.ts
 
 ## [16:30–18:30] ЧТО ПОСТРОИЛИ — ИТОГ ДВУХ ВИДЕО
 
-*[Экран: DevTracker + демо бота рядом]*
+*[Экран: AITracker + демо бота рядом]*
 
 > "Два видео. Два приложения.
 >
-> DevTracker:
+> AITracker:
 > ✓ Next.js 15 + TypeScript + Prisma с оптимизацией
 > ✓ Server Actions с Zod-валидацией
 > ✓ AI-приоритизация через Groq llama-3.3-70b (бесплатно)
@@ -1251,7 +1251,7 @@ cd bot && npx ts-node index.ts
 > "Если наберём 500 лайков — снимем продолжение.
 > Пишите А, Б или В:
 >
-> А — «Деплой DevTracker + бота на VPS за 20 минут»
+> А — «Деплой AITracker + бота на VPS за 20 минут»
 > Б — «Пишем свой MCP сервер с нуля — плагин для Claude»
 > В — «Claude API напрямую — строим своего AI-агента без Claude Code»
 >
@@ -1263,7 +1263,7 @@ cd bot && npx ts-node index.ts
 ## ФИНАЛЬНАЯ СТРУКТУРА ПРОЕКТА
 
 ```
-devtracker/
+aitracker/
 ├── app/
 │   ├── tasks/page.tsx
 │   └── layout.tsx
