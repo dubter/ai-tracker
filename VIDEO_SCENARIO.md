@@ -1,67 +1,68 @@
 # Сценарий: «Я уволил джуна. Теперь за него работает Claude Code»
 
-> YouTube | Два видео по 20 минут | Проект: AITracker + Telegram Bot
+> YouTube | Одно видео ~35 минут | Проект: AITracker (Next.js) + Telegram Bot (Go)
 
 ---
 
-## YOUTUBE-МЕТАДАННЫЕ — ЧАСТЬ 1
+## YOUTUBE-МЕТАДАННЫЕ
 
 ### Название
-**Я уволил джуна. Теперь за него работает Claude Code | Next.js трекер задач с AI за 20 минут**
+**Я уволил джуна. Теперь за него работает Claude Code | Next.js + Go Telegram-бот за 35 минут**
 
 A/B варианты:
-- `Claude Code убивает джунов? Строим AI трекер задач с нуля за 20 минут`
-- `4 AI-агента вместо команды — Claude Code + Next.js + Groq за 20 минут`
+- `Claude Code строит два приложения за раз: Next.js трекер + Go Telegram-бот`
+- `4 AI-агента вместо команды — Claude Code + Next.js + Go + Groq`
 
 ### Описание
 
 ```
-Строим AITracker — трекер задач с AI-приоритизацией — с нуля за 20 минут.
-Без ручного написания кода. Только Claude Code + правильная настройка.
+Строим AITracker — трекер задач с AI-приоритизацией — и Go Telegram-бот одним запуском Claude.
+Без ручного написания кода. Одна команда — два готовых приложения.
 
 Что построим:
 ✓ Next.js 15 + TypeScript strict + Prisma + SQLite
 ✓ CRUD через Server Actions с Zod-валидацией
-✓ Кнопка «AI расставит приоритеты» → Groq llama-3.3-70b сортирует задачи
+✓ Кнопка «AI расставит приоритеты» → Groq llama-3.3-70b
+✓ Telegram-бот на Go: текст, голос (Groq Whisper), пересылка → подзадачи
 ✓ 4 специализированных агента: Security, DB Optimizer, Test Writer, API Designer
-✓ 12 Vitest тестов, JSDoc, оптимизированные индексы БД
 
-Главная идея: 8 минут настройки → проект строится сам.
-CLAUDE.md + субагенты + MCP + hooks = Claude работает как команда.
+Главная идея: 8 минут настройки → Claude строит весь проект сам.
+CLAUDE.md с PRD + субагенты + MCP + hooks = Claude работает как команда.
 
 ⏱ ТАЙМКОДЫ:
 00:00 — Хук: почему обычный ChatGPT — это потери
 00:30 — Что такое Claude Code и чем он лучше
-01:15 — CLAUDE.md + /init: постоянная память проекта
+01:15 — CLAUDE.md + /init: постоянная память + полный PRD
 02:45 — 4 кастомных субагента: Security, DB, Tests, API
 05:15 — .mcp.json + 4 типа памяти (CLAUDE.md / files / compact / mem0)
-07:00 — Hooks (PostToolUse + PreToolUse) + .claudeignore
-08:15 — create-next-app + Prisma (модель Task с parentId)
-09:45 — API Designer → Server Actions архитектура
-11:15 — DB Optimizer → индексы и N+1 запросы
-12:00 — Security Reviewer + hook в действии
-12:45 — Test Writer → 12 Vitest тестов
-13:30 — Plan mode + параллельные субагенты
-14:15 — /compact + self-improve + /commit
-15:15 — AITracker в браузере — финал
-17:45 — Шпаргалка: все команды и флаги
-19:00 — Что дальше (тизер Части 2)
+07:00 — Agent Teams: включаем параллельную команду агентов
+07:30 — Hooks (PostToolUse + PreToolUse) + .claudeignore
+08:15 — Одна команда — весь проект: Next.js + Go-бот одновременно
+14:30 — Plan mode → UI страница /tasks
+16:00 — /compact + self-improve + /commit
+17:00 — AITracker в браузере — первый демо
+19:00 — Go-бот: текст → задача, голос → задача
+25:00 — Пересылка → подзадачи + дедупликация
+30:00 — Финальный сценарий: утро понедельника
+33:00 — Шпаргалка: все команды и решения
+34:00 — Голосование: что снимаем дальше
 
 🔗 Ссылки:
 • Исходники: github.com/dubter/ai-tracker
 • Claude Code: claude.ai/code
 • Groq (бесплатный API): console.groq.com
 
-📌 Подпишись — Часть 2 выйдет если наберём 500 лайков.
+📌 Подпишись — следующее выйдет если наберём 500 лайков.
 Пиши в комментах: А, Б или В — за что голосуешь.
 ```
 
 ### Теги
 
 ```
-claude code, ai coding, next.js 15, typescript, prisma, задачи, трекер задач,
-ai агент, claude ai, groq, llm, server actions, telegram bot, автоматизация,
-программирование 2025, ai разработка, vitest, tailwind css, sqlite,
+claude code, ai coding, next.js 15, typescript, golang, go telegram bot,
+prisma, задачи, трекер задач, ai агент, claude ai, groq, llm,
+server actions, telegram bot, автоматизация, программирование 2025,
+ai разработка, vitest, tailwind css, sqlite, groq whisper,
 claude code tutorial, ai tools, junior developer,
 claude code агент субагент mcp hooks memory
 ```
@@ -86,115 +87,39 @@ glow effect, purple Claude AI logo, dark background #0d1117, bold white Russian
 text overlay, cinematic lighting, 16:9 ratio, high contrast --ar 16:9 --style raw
 ```
 
----
-
-## YOUTUBE-МЕТАДАННЫЕ — ЧАСТЬ 2
-
-### Название
-**Telegram-бот который думает: голос → задача, пересылка → подзадачи | Claude Code + Groq**
-
-A/B варианты:
-- `Telegram-бот за 20 минут: надиктовал — появилось в трекере. Claude Code + Groq Whisper`
-- `AI Telegram-бот: голос + пересылка + дедупликация | Claude Code пишет сам`
-
-### Описание
-
-```
-Подключаем Telegram-бота к AITracker из Части 1.
-Надиктовал задачу голосом — она появилась в трекере.
-Переслал 6 сообщений тимлида — Claude разбил на подзадачи с приоритетами.
-
-Что умеет бот:
-✓ Текст → задача (с автоматическим приоритетом)
-✓ Голосовое → Groq Whisper → задача (транскрипция за <1 сек)
-✓ Пересылка → иерархия подзадач (буфер 30 сек на накопление)
-✓ Дедупликация — не создаёт дубли через смысловой анализ
-✓ Одна БД с AITracker — задачи видны сразу на сайте
-
-Стек: Telegraf.js + Groq Whisper + Groq llama-3.3-70b + Prisma
-Всё бесплатно. Один GROQ_API_KEY на всё.
-
-⏱ ТАЙМКОДЫ:
-00:00 — Хук: утро понедельника, 6 сообщений тимлида
-00:30 — Архитектура бота (схема: Telegram → Groq → Prisma)
-01:30 — bot/CLAUDE.md + BotFather токен
-03:00 — Структура файлов через Claude
-04:30 — Текст → задача (демо: JWT vs молоко)
-06:00 — Голос → Groq Whisper → задача
-08:00 — Пересылка → подзадачи с иерархией
-10:00 — Накопление: 4 сообщения = один контекст
-11:30 — Дедупликация через Groq
-13:00 — Финальный сценарий: утро понедельника
-15:00 — /compact + self-improve для бота
-15:30 — Шпаргалка: архитектурные решения
-16:30 — Итог двух видео
-18:30 — Голосование: что снимаем дальше
-
-🔗 Ссылки:
-• Исходники: github.com/dubter/ai-tracker
-• Groq (бесплатный API): console.groq.com
-• Часть 1: [ссылка]
-
-Пиши А, Б или В:
-А — Деплой на VPS за 20 минут
-Б — Пишем свой MCP сервер
-В — Claude API напрямую без Claude Code
-```
-
-### Теги
-
-```
-telegram bot, telegraf.js, groq whisper, голосовой бот, ai telegram,
-claude code, next.js, prisma, typescript, task manager,
-whisper transcription, llm api, бесплатный ai api, groq api,
-автоматизация задач, ai бот telegram, дедупликация,
-подзадачи telegram, claude code tutorial rus, ai разработка 2025
-```
-
-### Превью (описание для дизайнера)
-
-**Текст на превью:**
-```
-Надиктовал голосом
-━━━━━━━━━━━━━━━━━
-Появилось в трекере
-```
-
-**Промпт Midjourney/DALL-E:**
-```
-Dark YouTube thumbnail, smartphone with Telegram open on left, desktop monitor
-showing task tracker on right, glowing arrow connecting them, purple and blue
-neon glow, dark background, bold white text, tech aesthetic, 16:9 --ar 16:9 --style raw
-```
-
-### Закреплённый комментарий (оба видео)
+### Закреплённый комментарий
 
 ```
 📌 Исходники: github.com/dubter/ai-tracker
-Часть 1: [ссылка] | Часть 2: [ссылка]
 Вопросы по коду — пишите здесь ↓
 ```
 
 ---
 
-# ЧАСТЬ 1 — CLAUDE CODE: НАСТРОЙКА + AITRACKER (20 минут)
+# ВИДЕО — CLAUDE CODE: AITRACKER + GO TELEGRAM-БОТ (~35 минут)
 
-## Что строим в Части 1
+## Что строим
 
-**AITracker** — трекер задач с AI-приоритизацией.
+**AITracker** — трекер задач с AI-приоритизацией + Go Telegram-бот с двумя точками входа.
 
-Стек: Next.js 15 · TypeScript · Prisma · SQLite · Claude API · Tailwind CSS
-
-На выходе:
+**AITracker (Next.js):**
 - Список задач с приоритетами (LOW / MEDIUM / HIGH / URGENT)
 - CRUD через Server Actions с Zod-валидацией
-- Кнопка «AI расставит приоритеты» → Groq llama-3.3-70b анализирует и сортирует
-- Тёмный минималистичный UI
-- Vitest тесты, JSDoc, оптимизированная БД — через специализированных агентов
+- Кнопка «AI расставит приоритеты» → Groq llama-3.3-70b
+- Тёмный минималистичный UI, Vitest тесты, JSDoc
+
+**Go Telegram-бот:**
+- Текст → задача (автоматический приоритет)
+- Голос → Groq Whisper → задача
+- Пересылка → иерархия подзадач (буфер 30 сек)
+- Дедупликация — не создаёт то что уже есть
+- Одна БД с AITracker — задачи видны сразу на сайте
+
+Стек: Next.js 15 · TypeScript · Prisma · SQLite · Go · telebot/v3 · Groq · Tailwind CSS
 
 ---
 
-## ХРОНОМЕТРАЖ — ЧАСТЬ 1
+## ХРОНОМЕТРАЖ
 
 | Блок | Время |
 |---|---|
@@ -203,22 +128,20 @@ neon glow, dark background, bold white text, tech aesthetic, 16:9 --ar 16:9 --st
 | **[SETUP]** CLAUDE.md + /init | 1:30 |
 | **[SETUP]** 4 кастомных субагента | 2:30 |
 | **[SETUP]** .mcp.json + 4 типа памяти | 1:45 |
-| **[SETUP]** Hooks (PostToolUse + PreToolUse) | 1:00 |
-| **[SETUP]** .claudeignore | 0:30 |
-| Переход «Настройка готова — смотри скорость» | 0:15 |
-| **[BUILD]** create-next-app + Prisma | 1:30 |
-| **[BUILD]** api-designer → Server Actions | 1:30 |
-| **[BUILD]** AI-приоритизация через Groq | 0:45 |
-| **[BUILD]** Agent Teams: настройка | 0:30 |
-| **[BUILD]** db-optimizer → индексы + N+1 | 0:45 |
-| **[BUILD]** security-reviewer + hook в действии | 0:45 |
-| **[BUILD]** test-writer → Vitest | 0:45 |
-| Plan mode | 0:45 |
-| Agent Teams (экспериментально) | 1:00 |
+| **[SETUP]** Agent Teams: включаем | 0:30 |
+| **[SETUP]** Hooks + .claudeignore | 0:45 |
+| Переход «8 минут готово — смотри что будет» | 0:15 |
+| **[BUILD]** Одна команда → весь проект (Next.js + Go-бот) | 6:00 |
+| Plan mode → UI страница /tasks | 1:00 |
 | /compact + self-improve + /commit | 1:00 |
-| Финал: AITracker в браузере | 1:30 |
-| Тизер Части 2 + призыв | 1:00 |
-| **Итого** | **~20 мин** |
+| Демо: AITracker в браузере | 1:30 |
+| Демо бота: текст → задача | 1:00 |
+| Демо бота: голос → задача | 1:30 |
+| Демо бота: пересылка → подзадачи | 2:00 |
+| Демо бота: дедупликация | 1:00 |
+| Финальный сценарий: утро понедельника | 2:00 |
+| Шпаргалка + итог + призыв | 2:30 |
+| **Итого** | **~35 мин** |
 
 ---
 
@@ -313,7 +236,9 @@ Next.js 15 + TypeScript + Prisma + SQLite.
 - Tailwind CSS + shadcn/ui
 - Zod для валидации входных данных в Server Actions
 - Groq API: llama-3.3-70b-versatile для AI-фич (бесплатный, скорость > качество)
-- Telegraf.js для Telegram-бота
+- Go 1.22+ для Telegram-бота (bot/)
+- telebot/v3 для работы с Telegram Bot API
+- database/sql + modernc.org/sqlite для чтения той же SQLite из Go
 - Groq API: whisper-large-v3 для транскрипции (бесплатный free tier)
 
 ## PRD — Функциональные требования
@@ -353,36 +278,44 @@ Next.js 15 + TypeScript + Prisma + SQLite.
 - { data, error } паттерн из всех Server Actions
 - Cursor-based пагинация (не offset — задачи создаются в реальном времени)
 
-### Telegram-бот (bot/)
+### Telegram-бот на Go (bot/)
 
-**Обработка текстовых сообщений (handlers/text.ts):**
+Бот написан на Go. Точка входа: `bot/main.go`. Использует ту же SQLite что и Next.js (database/sql).
+
+**Структура пакетов:**
+- `bot/handlers/` — обработчики Telegram событий
+- `bot/services/` — бизнес-логика (parsetasks, transcribe, dedup)
+- `bot/db/` — запросы к SQLite (без ORM, чистый database/sql)
+
+**Обработка текстовых сообщений (handlers/text.go):**
 - Принимать любой текст от пользователя
-- Игнорировать пересланные (forward_from, forward_from_chat)
-- Передавать в parse-tasks → создавать задачи → отвечать с эмодзи
+- Игнорировать пересланные (msg.OriginalSender != nil)
+- Передавать в ParseTasks → создавать задачи → отвечать с эмодзи
 
-**Обработка голосовых сообщений (handlers/voice.ts):**
-- Скачать voice file по file_id из Telegram
+**Обработка голосовых сообщений (handlers/voice.go):**
+- Скачать voice file по FileID из Telegram
 - Транскрибировать через Groq Whisper (whisper-large-v3, язык: авто)
 - Показать "🎤 Услышал: [текст]" перед созданием задачи
 - Дальше как текстовое сообщение
 
-**Обработка пересланных сообщений (handlers/forward.ts):**
-- Определять по forward_from / forward_from_chat
-- Накапливать в буфер Map<userId, { messages[], timer }>
-- Ждать 30 секунд после последнего пересланного
-- Передавать весь буфер в parse-tasks как единый контекст
+**Обработка пересланных сообщений (handlers/forward.go):**
+- Определять по msg.OriginalSender или msg.OriginalChat
+- Накапливать в буфер map[int64]*ForwardBuffer (sync.Mutex защищает)
+- ForwardBuffer: messages []string, timer *time.Timer
+- Ждать 30 секунд после последнего пересланного (сбрасывать таймер)
+- Передавать весь буфер в ParseTasks как единый контекст
 - Показывать имя автора оригинала в ответе
 - Очищать буфер после обработки
 
-**Сервис парсинга задач (services/parse-tasks.ts):**
-- Получать текст + список существующих задач из Prisma
-- Запрос в Groq llama-3.3-70b с промптом
+**Сервис парсинга задач (services/parsetasks.go):**
+- Получать текст + список существующих задач из SQLite
+- HTTP POST запрос в Groq llama-3.3-70b с промптом
 - Groq возвращает JSON: { tasks: [{ title, description, priority, parentTitle?, duplicate? }] }
-- Создавать задачи в БД, устанавливать parentId по parentTitle
+- Создавать задачи в SQLite через db/tasks.go, устанавливать parent_id по parentTitle
 - Если duplicate — пропускать создание
 - Возвращать структурированный отчёт (создано N, пропущено M)
 
-**Промпт для Groq (parse-tasks):**
+**Промпт для Groq (parsetasks):**
 ```
 Ты — менеджер задач. Анализируй текст.
 Существующие задачи: {{existingTasks}}
@@ -400,27 +333,29 @@ Next.js 15 + TypeScript + Prisma + SQLite.
 { "tasks": [{ "title", "description", "priority", "parentTitle?", "duplicate?" }] }
 ```
 
-**Сервис дедупликации (services/dedup.ts):**
-- Перед созданием каждой задачи проверять похожесть с существующими
-- Использовать Groq для смыслового сравнения (>70% совпадение = дубль)
+**Сервис дедупликации (services/dedup.go):**
+- Перед созданием каждой задачи проверять похожесть с существующими через Groq
+- >70% смыслового совпадения = дубль
 - При дубле: показать найденную задачу, спросить "Создать всё равно? (да/нет)"
 
-**Сервис транскрипции (services/transcribe.ts):**
-- Скачать файл через Telegram Bot API по file_id
-- Отправить в Groq Whisper API
+**Сервис транскрипции (services/transcribe.go):**
+- Скачать файл через Telegram Bot API по FileID
+- multipart/form-data POST в Groq Whisper API
 - Вернуть строку с текстом
 
-**Важно для бота:**
-- Prisma клиент — из корня проекта (../prisma), не создавать новый
-- Все ключи из process.env, без хардкода
-- Все Telegram ошибки перехватывать — пользователь всегда получает ответ
+**Важно для Go-бота:**
+- Читать ту же SQLite: путь к файлу из env DB_PATH (дефолт: ../prisma/dev.db)
+- Все ключи из os.Getenv, без хардкода
+- Все panic/ошибки ловить — пользователь всегда получает ответ
 - Форматирование ответов: эмодзи для статусов (✅ 🔴 🟡 🟢 ⚠️ 🎤 📌 📋 ⏰)
+- Горутины безопасны: mutex для буфера пересылок
 
 ## Соглашения
-- Server Actions вместо отдельных API routes
+- Server Actions вместо отдельных API routes (Next.js часть)
 - Возвращать { data, error } паттерн из Server Actions
 - Conventional commits: feat:, fix:, chore:, test:
 - Компоненты в /components, экшены в /actions, бот в /bot
+- Go: ошибки через (T, error), не panic в хэндлерах
 
 ## Запреты
 - Не читать .env файлы (там секреты)
@@ -652,7 +587,30 @@ claude --resume
 
 ---
 
-## [7:00–8:00] НАСТРОЙКА 4: HOOKS + .claudeignore
+## [7:00–7:30] НАСТРОЙКА 4: AGENT TEAMS
+
+*[Экран]*
+
+> "И последняя настройка перед запуском — самая мощная.
+> Agent Teams — это когда Claude не один, а целая команда параллельных агентов.
+> Включается одной строчкой. Дальше увидишь в деле."
+
+Добавляем в `.claude/settings.json`:
+
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
+
+> "Всё. С этого момента Claude знает что может запускать субагентов параллельно.
+> Никаких дополнительных команд — он сам решит когда это нужно."
+
+---
+
+## [7:30–8:15] НАСТРОЙКА 5: HOOKS + .claudeignore
 
 *[Экран]*
 
@@ -709,14 +667,14 @@ EOF
 
 ---
 
-## [8:00–8:15] ПЕРЕХОД
+## [8:15–8:30] ПЕРЕХОД
 
 *[Говорящая голова]*
 
-> "Вот и всё — 8 минут настройки позади.
-> CLAUDE.md, четыре агента, MCP с mem0, hooks, .claudeignore.
-> Теперь смотри как быстро строится проект, когда Claude знает что делает.
-> Каждая команда — это не строчка кода. Это целый готовый модуль."
+> "8 минут — и всё готово. CLAUDE.md с полным PRD, четыре специалиста,
+> MCP с mem0, Agent Teams, hooks, .claudeignore.
+>
+> Теперь смотри что произойдёт когда я напишу одну команду."
 
 ---
 
@@ -724,158 +682,88 @@ EOF
 
 ---
 
-## [8:15–9:45] BUILD 1: CREATE-NEXT-APP + PRISMA
+## [8:30–14:30] СТРОИМ ПРОЕКТ: ОДНА КОМАНДА
 
-*[Экран: терминал, быстрый темп]*
+*[Экран: терминал]*
 
 ```bash
 npx create-next-app@latest . --typescript --tailwind --app --yes
 ```
 
 ```bash
-claude "установи Prisma с SQLite и groq-sdk. Создай модель Task:
-- id: cuid
-- title: String
-- description: String (опционально)
-- priority: enum LOW | MEDIUM | HIGH | URGENT (default MEDIUM)
-- status: enum TODO | IN_PROGRESS | DONE (default TODO)
-- createdAt: DateTime
-- parentId: String (опционально, для подзадач из Telegram-бота)
-- parent: Task (self-relation)
-- children: Task[]
+claude "Реализуй AITracker согласно PRD в CLAUDE.md.
 
-Запусти миграцию."
+Два приложения из одного запуска:
+
+1. Next.js часть: Prisma + все Server Actions + UI компоненты +
+   Groq-интеграция + тесты + JSDoc + оптимизация БД + security review.
+
+2. Go Telegram-бот (bot/): go mod init + telebot/v3 + все handlers и services
+   как описано в PRD. Бот читает ту же SQLite через database/sql.
+   DB_PATH из env, дефолт ../prisma/dev.db."
 ```
 
-*[В выводе: Bash → npm install, Write → schema.prisma, Bash → prisma migrate dev]*
+*[Показываем терминал — Claude запускает Agent Teams, работают параллельно]*
 
-> "Смотри на инструменты: Bash, Write, Bash снова — он сам выстроил последовательность.
-> Я не говорил 'сначала установи, потом создай файл, потом мигрируй'.
-> Он прочитал CLAUDE.md — увидел что нужен parentId для бота — добавил сам.
-> И миграцию запустил. Без напоминания."
+*[В выводе одновременно видны несколько потоков]:*
+
+```
+[api-designer] Проектирую Server Actions: createTask, getTasks...
+[db-optimizer] Анализирую схему Prisma, добавляю индексы...
+[security-reviewer] Проверяю валидацию и SQL-запросы в Go...
+[test-writer] Пишу Vitest тесты для actions/tasks.ts...
+```
+
+> "Стоп. Видишь что происходит?
+> Я написал одну команду. Два приложения — Next.js и Go-бот.
+> Не 'сначала сделай то, потом это'.
+> Просто — вот PRD, вот два результата.
+>
+> Claude сам прочитал CLAUDE.md. Увидел требования и для веба, и для бота.
+> И сам решил: это можно распараллелить.
+> api-designer проектирует Server Actions.
+> db-optimizer параллельно смотрит на схему Prisma.
+> security-reviewer проверяет и TypeScript, и Go-код.
+> test-writer пишет Vitest тесты.
+>
+> Одновременно. Без моего участия."
+
+*[Пока агенты работают — показываем промежуточные результаты]*
+
+*[api-designer — пишет actions/tasks.ts с { data, error } паттерном и Zod]*
+*[db-optimizer — добавляет @@index([status]), @@index([priority]), @@index([parentId])]*
+*[security-reviewer — добавляет trim(), maxLength 255, проверяет Go SQL-запросы]*
+*[PostToolUse hook срабатывает после каждого Edit → TypeScript проверка → чисто]*
+*[test-writer — пишет tests/tasks.test.ts, vi.mock для Prisma и Groq]*
+*[Параллельно: bot/main.go, bot/handlers/*.go, bot/services/*.go создаются]*
+
+```bash
+npx prisma migrate dev
+npx vitest run
+# → Passed: 12 tests
+
+cd bot && go build ./...
+# → успешно
+```
+
+> "Hook сработал автоматически после каждого редактирования — TypeScript на месте.
+> 12 тестов прошли. Go-бот собрался без ошибок.
+>
+> Два приложения за одну команду.
+> CLAUDE.md с PRD — он знал что нужно обоим.
+> Агенты — каждый специалист в своём деле.
+> Agent Teams — параллельно.
+> Hooks — автоматически."
 
 ```bash
 # Фишка: claude -p для неинтерактивного режима (CI/CD):
-claude -p "проверь что schema.prisma содержит индексы" --output-format json
+claude -p "проверь что schema.prisma содержит все индексы из PRD" --output-format json
 # → используется в GitHub Actions, bash скриптах, пайплайнах
 ```
 
 ---
 
-## [9:45–11:15] BUILD 2: API DESIGNER → SERVER ACTIONS
-
-*[Экран]*
-
-> "Вот приём который я использую постоянно.
-> Прежде чем писать код — сначала спрашиваем архитектора спроектировать интерфейс.
-> Не 'напиши мне Server Actions'. А 'спроектируй, покажи типы и схемы'.
-> Дальше реализация по чёткому спеку — не по воздуху."
-
-```bash
-claude --agent api-designer "спроектируй Server Actions для Task:
-createTask, getTasks (с пагинацией cursor-based), updateStatus,
-deleteTask, prioritizeTasks через Groq llama-3.3-70b.
-Покажи интерфейсы и Zod схемы."
-```
-
-*[api-designer выдаёт: типы, Zod схемы, сигнатуры функций]*
-
-```bash
-# Теперь пишем реализацию по спеку:
-claude "реализуй Server Actions из спека выше в actions/tasks.ts.
-Используй Prisma. Groq llama-3.3-70b для prioritizeTasks().
-{ data, error } паттерн как в api-designer."
-```
-
-*[Claude пишет actions/tasks.ts — TypeScript strict, Zod, { data, error }, Groq]*
-
-> "Двухфазный подход: сначала архитектура — потом реализация.
-> api-designer принял все тяжёлые решения: какие типы, какие схемы, какой паттерн.
-> И когда пришло время писать код — Claude уже не придумывал на ходу.
-> Он реализовывал конкретный спек."
-
----
-
-## [11:15–12:00] BUILD 3: DB OPTIMIZER
-
-*[Экран]*
-
-```bash
-claude --agent db-optimizer "проанализируй schema.prisma и actions/tasks.ts.
-Найди N+1 запросы и предложи индексы."
-```
-
-*[db-optimizer находит: getTasks без индексов по status и priority, потенциальный N+1 в children]*
-
-```bash
-claude "примени рекомендации db-optimizer:
-- добавь @@index([status]), @@index([priority]), @@index([parentId])
-- исправь N+1 в getTasks — добавь include: { children: true } один раз
-- добавь cursor-based пагинацию если её ещё нет"
-```
-
-```bash
-npx prisma migrate dev --name add-indexes
-```
-
-> "db-optimizer нашёл проблемы ещё до того как приложение начало тормозить.
-> Это и есть правильный момент для оптимизации — до продакшна, не после.
-> Потому что после — это уже инцидент."
-
----
-
-## [12:00–12:45] BUILD 4: SECURITY REVIEWER + HOOK
-
-*[Экран]*
-
-```bash
-claude --agent security-reviewer "проверь actions/tasks.ts"
-```
-
-*[Находит: title принимает строку любой длины, нет trim(), нет максимального размера]*
-
-```bash
-claude "исправь валидацию по рекомендациям security-reviewer:
-- trim() для title и description
-- maxLength 255 для title
-- maxLength 2000 для description
-- явная обработка ZodError в ответе"
-```
-
-*[Claude редактирует файл → PostToolUse hook срабатывает → TypeScript проверка → чисто]*
-
-> "Видишь? Hook сработал автоматически — TypeScript проверка сразу после редактирования.
-> В этот раз чисто. Но если бы была ошибка — мы бы узнали немедленно, не через 10 минут.
-> Вот зачем мы настраивали это в самом начале, а не в конце."
-
----
-
-## [12:45–13:30] BUILD 5: TEST WRITER
-
-*[Экран]*
-
-```bash
-claude --agent test-writer "напиши тесты для actions/tasks.ts:
-- createTask: валидные данные, невалидный title, слишком длинный title
-- getTasks: пустая БД, с данными, с пагинацией
-- prioritizeTasks: мок Groq API ответа"
-```
-
-*[test-writer пишет tests/tasks.test.ts: describe блоки, vi.mock Prisma, все кейсы]*
-
-```bash
-npx vitest run
-# → Passed: 12 tests
-```
-
-> "12 тестов. Прошли все.
-> test-writer знает как мокать Prisma, знает структуру Vitest, знает edge cases —
-> потому что всё это прописано в его системном промпте.
-> Ты один раз настроил специалиста — и он работает правильно каждый раз."
-
----
-
-## [13:30–14:15] PLAN MODE + ПАРАЛЛЕЛЬНЫЕ АГЕНТЫ
+## [13:00–14:00] PLAN MODE → UI
 
 **Plan mode:**
 
@@ -897,58 +785,14 @@ claude --plan "добавь страницу /tasks:
 > Смотришь план, правишь текстом, и только потом запускаешь выполнение.
 > Это дешевле, чем потом откатывать неправильно написанный код."
 
-**Agent Teams — настоящая параллельная команда:**
-
-> "А теперь фишка, которая мало кто знает. Это экспериментально, но уже работает.
-> Agent Teams — несколько агентов Claude Code, которые работают одновременно.
-> Включаем одной переменной в settings.json — и Claude сам решает как распараллелить работу."
-
-Включаем в `.claude/settings.json`:
-
-```json
-{
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  }
-}
-```
-
-Запускаем — описываем только результат, не агентов:
-
-```bash
-claude "Сделай финальную полировку AITracker перед релизом:
-- JSDoc для всех Server Actions
-- loading states и skeleton в UI компонентах
-- GitHub release v0.1.0 через MCP с changelog"
-```
-
-*[Показываем: Claude сам создаёт команду агентов, распределяет задачи, работают параллельно в одном терминале]*
-
-> "Смотри — я не сказал 'создай агента для документации и агента для UI'.
-> Я описал что нужно получить. Claude сам решил что это три независимые задачи,
-> сам создал команду, сам распределил.
-> Пока один пишет JSDoc — другой уже делает skeleton. Третий готовит changelog.
-> Это и есть разница: ты управляешь результатом, не процессом."
-
-```bash
-# Если нужно уточнить что-то конкретному агенту:
-/message "используй shadcn/ui Skeleton, не самописный"
-
-# Всем сразу:
-/broadcast "schema.prisma не трогать"
-```
-
-> "Ключевое правило: задача должна быть описана через результат, не через шаги.
-> Claude сам поймёт как разбить на параллельные потоки."
-
 ---
 
-## [14:15–15:15] ПАМЯТЬ + SELF-IMPROVE
+## [14:00–15:00] ПАМЯТЬ + SELF-IMPROVE
 
 **Compact:**
 
 ```bash
-/compact "сделали: Prisma + Server Actions + Security review + тесты + UI.
+/compact "сделали: весь AITracker — Prisma + Server Actions + Security review + тесты + UI.
 Следующий шаг: Telegram-бот"
 ```
 
@@ -983,7 +827,7 @@ claude "подведи итог сессии и запиши в
 
 ---
 
-## [15:15–17:45] ФИНАЛ: СМОТРИМ AITRACKER
+## [15:00–17:45] ФИНАЛ: СМОТРИМ AITRACKER
 
 ```bash
 npm run dev
@@ -1046,28 +890,17 @@ Shift+Down             # переключаться между агентами
 
 ---
 
-## [19:00–20:00] ТИЗЕР + ПРИЗЫВ
+## [17:00–17:45] ПЕРЕХОД К ДЕМО БОТА
 
 *[Говорящая голова]*
 
-> "В следующем видео подключим Telegram-бот к этому трекеру.
->
-> Надиктовал голосовым — задача появилась здесь.
-> Переслал пачку сообщений тимлида — Claude сам разбил на подзадачи.
-> И проверил — нет ли среди них дублей.
->
-> Хочу снять — но нужно понять что вам интереснее.
-> Пишите в комментах А, Б или В:
->
-> А — Telegram-бот + голос + дедупликация
-> Б — Деплой всего на VPS за 20 минут
-> В — Свой MCP сервер с нуля — пишем плагин для Claude
->
-> Исходники в описании. Подпишись — не пропусти следующее."
+> "Next.js трекер готов, работает в браузере.
+> Но мы просили Claude построить ещё и Telegram-бот на Go — одной командой.
+> Давай проверим что он написал, запустим и покажем как это работает."
 
 ---
 
-## ТЕХНИЧЕСКИЕ ЗАМЕТКИ — ЧАСТЬ 1
+## ТЕХНИЧЕСКИЕ ЗАМЕТКИ
 
 | Блок | Тип | Что на экране |
 |---|---|---|
@@ -1076,77 +909,38 @@ Shift+Down             # переключаться между агентами
 | CLAUDE.md | Экран | VS Code, пишем файл |
 | 4 агента | Экран | cat >> файл x4 |
 | .mcp.json | Экран | VS Code |
-| Hooks | Экран | settings.json |
+| Agent Teams | Экран | settings.json |
+| Hooks | Экран | settings.json + hook срабатывает |
 | .claudeignore | Экран | Терминал |
-| create-next-app | Экран | Быстрый терминал |
-| api-designer | Экран | Вывод агента |
-| Server Actions | Экран | Код файл |
-| db-optimizer | Экран | Вывод агента + schema |
-| security-reviewer | Экран | Вывод + hook сработал |
-| test-writer | Экран | .test.ts + результат |
-| Plan mode | Экран | План вывод |
-| Agent Teams | Экран | Терминал с тремя агентами, /message, /broadcast |
+| Одна команда → весь проект | Экран | Agent Teams в терминале, 4 агента параллельно |
+| Go-бот собирается | Экран | go build, дерево файлов |
+| Tests | Экран | vitest + 12 passed |
+| Plan mode → UI | Экран | План + /tasks в браузере |
 | /compact | Экран | Терминал |
 | Self-improve | Экран | CLAUDE.md после |
-| Финал | Экран | AITracker в браузере |
-| Шпаргалка | Слайд/Экран | Список команд |
-
----
----
-
-# ЧАСТЬ 2 — TELEGRAM-БОТ ДЛЯ AITRACKER (20 минут)
-
-## Что строим в Части 2
-
-**AITracker Bot** — Telegram-бот который:
-
-1. **Текст → задача**: пишешь боту → задача появляется в трекере
-2. **Голос → задача**: говоришь голосовым → Groq Whisper → задача
-3. **Пересылка → подзадачи**: пересылаешь сообщение тимлида → Claude разбивает на задачи с иерархией
-4. **Накопление**: несколько пересланных сообщений за 30 сек → разбирает вместе как один контекст
-5. **Дедупликация**: перед созданием проверяет — такая задача уже есть?
-
-Стек: Telegraf.js · Groq Whisper API · Groq llama-3.3-70b · Prisma (shared с AITracker)
+| AITracker финал | Экран | Браузер + бот рядом |
+| Демо бота | Экран | Telegram + AITracker в реальном времени |
+| Шпаргалка | Слайд/Экран | Список решений |
 
 ---
 
-## ХРОНОМЕТРАЖ — ЧАСТЬ 2
+# ДЕМО GO-БОТА (~17 минут)
 
-| Блок | Время |
-|---|---|
-| Хук | 0:30 |
-| Архитектура бота | 1:00 |
-| Настройка CLAUDE.md для /bot + BotFather | 1:30 |
-| Установка + структура через claude | 1:30 |
-| Текст → задача | 1:30 |
-| Голос → Whisper → задача | 2:00 |
-| Пересылка → подзадачи (одно большое) | 2:00 |
-| Пересылка → накопление (несколько маленьких) | 1:30 |
-| Дедупликация | 1:30 |
-| Финальный сценарий — утро понедельника | 2:00 |
-| /compact + self-improve | 0:30 |
-| Шпаргалка по боту | 1:00 |
-| Итог + призыв | 1:30 |
-| **Итого** | **~20 мин** |
+> *Бот уже написан Claude в предыдущем блоке. Здесь — запуск и демо.*
 
 ---
 
-## [0:00–0:30] ХУК
+## [19:00–19:30] ПЕРЕХОД К БОТУ
 
 *[Говорящая голова]*
 
-> "В прошлом видео собрали AITracker — трекер задач с AI-приоритизацией.
-> Сегодня подключим к нему Telegram-бот.
->
-> Вот что он умеет: надиктовал голосовым — задача появилась в трекере.
-> Переслал шесть сообщений тимлида — бот разобрал их на подзадачи с приоритетами.
-> И проверил — нет ли среди них того, что уже есть.
->
-> Всё это напишет Claude Code. Моя работа — описать что нужно."
+> "Окей. Next.js трекер готов, работает в браузере.
+> Но мы просили Claude сразу два приложения — и он написал оба.
+> Теперь запускаем Go-бот и смотрим как он работает."
 
 ---
 
-## [0:30–1:30] АРХИТЕКТУРА
+## [19:30–20:00] АРХИТЕКТУРА GO-БОТА
 
 *[Экран: схема]*
 
@@ -1160,54 +954,45 @@ Telegram
                                             Groq llama-3.3-70b
                                                   │
                                     ┌─────────────┴─────────────┐
-                                    │  parse-tasks.ts            │
+                                    │  services/parsetasks.go   │
                                     │  - извлечь задачи          │
                                     │  - расставить приоритеты   │
                                     │  - найти иерархию          │
                                     │  - проверить дубли         │
                                     └─────────────┬─────────────┘
                                                   │
-                                             Prisma ORM
+                                         database/sql (Go)
                                                   │
-                                        SQLite — та же БД что AITracker
+                                        SQLite — та же БД что Next.js
                                                   │
                                          Задачи видны на сайте ✓
 ```
 
-> "Ключевой момент архитектуры: бот и веб-приложение используют одну базу данных через Prisma.
+> "Ключевой момент: бот на Go и Next.js-веб читают одну SQLite-базу.
 > Создал задачу в боте — открываешь сайт — она уже там.
-> Никакой синхронизации, никаких вебхуков между сервисами. Просто одна БД."
+> Бот не знает про Prisma — он читает базу напрямую через database/sql.
+> Никакой синхронизации. Просто одна БД, два приложения."
 
----
-
-## [1:30–3:00] НАСТРОЙКА + BOTFATHER
-
-**CLAUDE.md для /bot:**
+**Проверяем структуру которую написал Claude:**
 
 ```bash
-touch bot/CLAUDE.md
+tree bot/
+# bot/
+# ├── main.go
+# ├── go.mod
+# ├── handlers/
+# │   ├── text.go
+# │   ├── voice.go
+# │   └── forward.go
+# ├── services/
+# │   ├── transcribe.go
+# │   ├── parsetasks.go
+# │   └── dedup.go
+# └── db/
+#     └── tasks.go
 ```
 
-```markdown
-# AITracker Bot
-
-## Контекст модуля
-Telegram-бот для AITracker. Читай корневой CLAUDE.md для общего контекста.
-
-## Специфика бота
-- Telegraf.js v4, TypeScript strict
-- Разделение: handlers/ обрабатывают Telegram события, services/ — бизнес-логика
-- Все Telegram ошибки перехватываем, пользователь всегда получает ответ
-- Форматирование: использовать эмодзи для статусов (✅ 🔴 🟡 🟢 ⚠️)
-- Буфер пересылок: 30 секунд ожидания перед обработкой
-
-## Внешние зависимости
-- TELEGRAM_BOT_TOKEN — из BotFather
-- GROQ_API_KEY — Groq Whisper (бесплатный free tier)
-- Prisma клиент из ../prisma (shared с основным приложением)
-```
-
-**BotFather:**
+**BotFather + запуск:**
 
 *[Экран: Telegram]*
 
@@ -1219,61 +1004,20 @@ Telegram-бот для AITracker. Читай корневой CLAUDE.md для �
 ```
 
 ```bash
-echo "TELEGRAM_BOT_TOKEN=7234567890:AAHdq..." >> .env.local
-echo "GROQ_API_KEY=gsk_..." >> .env.local
+echo "TELEGRAM_BOT_TOKEN=7234567890:AAHdq..." >> .env
+echo "GROQ_API_KEY=gsk_..." >> .env
+echo "DB_PATH=./prisma/dev.db" >> .env
+
+cd bot && go run main.go
 ```
+
+> "Всё что написал Claude уже здесь — согласно PRD из CLAUDE.md.
+> Структура правильная, Go-модуль инициализирован, зависимости подтянуты.
+> Просто запускаем."
 
 ---
 
-## [3:00–4:30] СОЗДАЁМ СТРУКТУРУ ЧЕРЕЗ CLAUDE
-
-```bash
-claude "создай Telegraf бота в /bot. TypeScript strict.
-Структура:
-- bot/index.ts — точка входа
-- bot/handlers/text.ts — текстовые сообщения
-- bot/handlers/voice.ts — голосовые
-- bot/handlers/forward.ts — пересланные + буфер 30 сек
-- bot/services/transcribe.ts — Groq Whisper API
-- bot/services/parse-tasks.ts — Groq llama-3.3-70b → JSON задач
-- bot/services/dedup.ts — проверка дублей
-
-Prisma клиент — из корня проекта, не создавай новый.
-Все ключи из process.env, без хардкода."
-```
-
-```bash
-tree bot/
-# bot/
-# ├── index.ts
-# ├── handlers/
-# │   ├── text.ts
-# │   ├── voice.ts
-# │   └── forward.ts
-# └── services/
-#     ├── transcribe.ts
-#     ├── parse-tasks.ts
-#     └── dedup.ts
-```
-
-> "Готово — структура создана.
-> Он прочитал и корневой CLAUDE.md, и bot/CLAUDE.md.
-> Знает что Prisma shared — не создал новый клиент.
-> Знает про буфер 30 секунд — учёл в forward.ts.
-> Это и есть польза от правильно написанного контекста."
-
----
-
-## [4:30–6:00] ТЕКСТ → ЗАДАЧА
-
-```bash
-claude "реализуй bot/handlers/text.ts:
-- принимает текстовое сообщение
-- игнорирует пересланные (forward_from или forward_from_chat)
-- передаёт в parse-tasks.ts
-- создаёт задачи в БД
-- отвечает форматированным сообщением с эмодзи"
-```
+## [20:00–21:30] ТЕКСТ → ЗАДАЧА (ДЕМО)
 
 **Демо:**
 
@@ -1307,21 +1051,9 @@ claude "реализуй bot/handlers/text.ts:
 
 ---
 
-## [6:00–8:00] ГОЛОС → WHISPER → ЗАДАЧА
+## [21:30–23:00] ГОЛОС → WHISPER → ЗАДАЧА (ДЕМО)
 
-```bash
-claude "реализуй bot/services/transcribe.ts:
-- скачать голосовой файл из Telegram по file_id
-- отправить в Groq Whisper API (whisper-large-v3)
-- язык: авто (ru + en)
-- вернуть транскрибированный текст
-
-реализуй bot/handlers/voice.ts:
-- получить voice message
-- вызвать transcribe()
-- показать 'Услышал: [текст]'
-- передать в parse-tasks как текстовое"
-```
+*[Go-бот уже запущен, Groq Whisper подключён через GROQ_API_KEY]*
 
 **Демо:**
 
@@ -1362,29 +1094,14 @@ claude "реализуй bot/services/transcribe.ts:
 
 ---
 
-## [8:00–10:00] ПЕРЕСЫЛКА → ПОДЗАДАЧИ
+## [23:00–25:00] ПЕРЕСЫЛКА → ПОДЗАДАЧИ (ДЕМО)
 
 *[Говорящая голова]*
 
 > "Это моя любимая фишка в этом боте.
 > Тимлид присылает большое сообщение — всё что нужно к релизу.
-> Ты просто пересылаешь. Бот разбирает это на иерархию задач с приоритетами.
+> Ты просто пересылаешь. Go-бот накапливает буфер 30 сек, потом Groq разбивает на иерархию.
 > Смотри."
-
-```bash
-claude "реализуй bot/handlers/forward.ts:
-- определять пересланные сообщения (forward_from/forward_from_chat)
-- собирать в буфер 30 секунд
-- передавать весь буфер в parse-tasks
-- показывать имя автора оригинала
-
-реализуй bot/services/parse-tasks.ts через Groq llama-3.3-70b:
-- получить текст + существующие задачи из Prisma
-- Groq анализирует и возвращает JSON:
-  { tasks: [{ title, description, priority, parentTitle?, duplicate? }] }
-- создать задачи в БД, установить parentId
-- вернуть структурированный отчёт"
-```
 
 **Демо — одно большое сообщение:**
 
@@ -1413,7 +1130,7 @@ Prisma обнови до последней версии."
 
 ---
 
-## [10:00–11:30] НАКОПЛЕНИЕ — НЕСКОЛЬКО СООБЩЕНИЙ
+## [25:00–26:30] НАКОПЛЕНИЕ — НЕСКОЛЬКО СООБЩЕНИЙ
 
 **Демо — 4 коротких:**
 
@@ -1447,13 +1164,9 @@ Prisma обнови до последней версии."
 
 ---
 
-## [11:30–13:00] ДЕДУПЛИКАЦИЯ
+## [26:30–27:30] ДЕДУПЛИКАЦИЯ (ДЕМО)
 
-```bash
-claude "реализуй bot/services/dedup.ts:
-через Groq llama-3.3-70b проверяй — похожа ли новая задача на существующие
-(>70% смыслового совпадения). Если да — возвращай existing, не создавай новую."
-```
+*[Go-бот использует services/dedup.go — смысловое сравнение через Groq, >70% = дубль]*
 
 **Демо:**
 
@@ -1492,7 +1205,7 @@ claude "реализуй bot/services/dedup.ts:
 
 ---
 
-## [13:00–15:00] ФИНАЛЬНЫЙ СЦЕНАРИЙ: УТРО ПОНЕДЕЛЬНИКА
+## [27:30–30:00] ФИНАЛЬНЫЙ СЦЕНАРИЙ: УТРО ПОНЕДЕЛЬНИКА
 
 *[Говорящая голова]*
 
@@ -1535,69 +1248,77 @@ claude "реализуй bot/services/dedup.ts:
 
 ---
 
-## [15:00–15:30] COMPACT + SELF-IMPROVE ДЛЯ БОТА
+## [30:00–30:30] COMPACT + SELF-IMPROVE
 
 ```bash
 /compact "реализовали бота: text, voice (Groq), forward (буфер 30с),
 parse-tasks (Groq), dedup. Всё работает. Закончили."
 
-claude "обнови bot/CLAUDE.md: добавь что буфер хранится в Map<userId, Timer>
-и очищается после обработки. Важно для дебага."
+claude "обнови bot/CLAUDE.md: добавь что буфер хранится в map[int64]*ForwardBuffer
+с sync.Mutex, очищается после обработки. Важно для дебага."
 ```
 
 ---
 
-## [15:30–16:30] ШПАРГАЛКА — БОТ
+## [30:30–32:00] ШПАРГАЛКА — ВСЕ РЕШЕНИЯ
 
 ```
 Архитектурные решения:
-- Одна БД (Prisma) для бота и веба — задачи видны сразу
-- Groq Whisper (бесплатно) вместо OpenAI Whisper
+- Одна SQLite-БД для Go-бота и Next.js — задачи видны сразу на сайте
+- Go-бот читает базу через database/sql, не через Prisma
+- Groq Whisper (бесплатно) — транскрипция <1 сек
 - Groq llama-3.3-70b для парсинга — бесплатно, быстро (600+ tok/s)
-- Буфер через Map<userId, { messages[], timer }> — не Redis
-- Polling в разработке, webhook в продакшне (Vercel)
+- Буфер пересылок: map[int64]*ForwardBuffer + sync.Mutex (не Redis)
+- Polling в разработке, webhook в продакшне
 
-Переменные окружения:
+Next.js переменные:
+DATABASE_URL    — sqlite:./prisma/dev.db
+GROQ_API_KEY    — groq.com (AI приоритизация)
+
+Go-бот переменные:
 TELEGRAM_BOT_TOKEN  — @BotFather
-GROQ_API_KEY        — groq.com (бесплатно, используется для Whisper + LLM)
+GROQ_API_KEY        — groq.com (Whisper + LLM)
+DB_PATH             — путь к SQLite (дефолт: ../prisma/dev.db)
 
-Запуск бота:
-cd bot && npx ts-node index.ts
+Запуск:
+npm run dev          # Next.js
+cd bot && go run .   # Go-бот
 ```
 
 ---
 
-## [16:30–18:30] ЧТО ПОСТРОИЛИ — ИТОГ ДВУХ ВИДЕО
+## [32:00–34:00] ЧТО ПОСТРОИЛИ — ИТОГ
 
-*[Экран: AITracker + демо бота рядом]*
+*[Экран: AITracker в браузере + Telegram с ботом рядом]*
 
-> "Два видео. Два приложения. Давай подведём итог.
+> "Одна настройка — два готовых приложения.
 >
-> AITracker:
+> AITracker (Next.js):
 > ✓ Next.js 15 + TypeScript + Prisma с оптимизацией под продакшн
 > ✓ Server Actions с Zod-валидацией
 > ✓ AI-приоритизация через Groq — бесплатно
 > ✓ Security review, 12 тестов, JSDoc — всё через специализированных агентов
 >
-> Telegram Bot:
+> Go Telegram-бот:
 > ✓ Текст и голос → задачи через Groq Whisper
 > ✓ Пересылка → автоматические подзадачи с иерархией
 > ✓ Накопление нескольких сообщений в единый контекст
-> ✓ Дедупликация — не создаёт одно и то же дважды
+> ✓ Дедупликация через Groq — не создаёт дубли
+> ✓ Читает ту же SQLite — задачи видны в веб-трекере мгновенно
 >
 > Что я писал руками: CLAUDE.md, 4 файла агентов, конфиги.
-> Всё остальное — написал Claude Code."
+> Всё остальное написал Claude Code. Одной командой."
 
 ---
 
-## [18:30–20:00] ИТОГ + ПРИЗЫВ
+## [34:00–35:00] ПРИЗЫВ
 
 *[Говорящая голова]*
 
 > "Если это видео наберёт 500 лайков — снимем следующее.
 > Напиши в комментах — А, Б или В:
 >
-> А — Деплой AITracker + бота на VPS. Nginx, PM2, домен, HTTPS — за 20 минут
+> А — Деплой AITracker + Go-бота на VPS. Nginx, systemd, домен, HTTPS — за 20 минут
 > Б — Свой MCP сервер с нуля. Пишем плагин для Claude который умеет что-то своё
 > В — Claude API напрямую — строим AI-агента без Claude Code, на чистом SDK
 >
@@ -1619,17 +1340,20 @@ aitracker/
 │   ├── TaskCard.tsx            # бейдж приоритета + подзадачи
 │   ├── TaskForm.tsx
 │   └── PrioritizeButton.tsx
-├── bot/
-│   ├── CLAUDE.md               # ← контекст для модуля бота
-│   ├── index.ts
+├── bot/                        # Go Telegram-бот
+│   ├── CLAUDE.md               # ← контекст для Go-модуля
+│   ├── main.go                 # точка входа, telebot/v3
+│   ├── go.mod
 │   ├── handlers/
-│   │   ├── text.ts
-│   │   ├── voice.ts
-│   │   └── forward.ts          # буфер 30 сек
-│   └── services/
-│       ├── transcribe.ts       # Groq Whisper
-│       ├── parse-tasks.ts      # Groq → JSON
-│       └── dedup.ts            # проверка дублей
+│   │   ├── text.go
+│   │   ├── voice.go
+│   │   └── forward.go          # буфер 30 сек + sync.Mutex
+│   ├── services/
+│   │   ├── transcribe.go       # Groq Whisper API
+│   │   ├── parsetasks.go       # Groq → JSON задач
+│   │   └── dedup.go            # проверка дублей
+│   └── db/
+│       └── tasks.go            # database/sql → та же SQLite
 ├── tests/
 │   └── tasks.test.ts           # 12 Vitest тестов
 ├── prisma/
@@ -1649,7 +1373,7 @@ aitracker/
 
 ---
 
-## PROMPT ДЛЯ CLAUDE HAIKU — ПАРСИНГ ЗАДАЧ
+## PROMPT ДЛЯ GROQ — ПАРСИНГ ЗАДАЧ (services/parsetasks.go)
 
 ```
 Ты — менеджер задач. Анализируй текст от руководителя.
