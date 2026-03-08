@@ -209,11 +209,12 @@ neon glow, dark background, bold white text, tech aesthetic, 16:9 --ar 16:9 --st
 | **[BUILD]** create-next-app + Prisma | 1:30 |
 | **[BUILD]** api-designer → Server Actions | 1:30 |
 | **[BUILD]** AI-приоритизация через Groq | 0:45 |
+| **[BUILD]** Agent Teams: настройка | 0:30 |
 | **[BUILD]** db-optimizer → индексы + N+1 | 0:45 |
 | **[BUILD]** security-reviewer + hook в действии | 0:45 |
 | **[BUILD]** test-writer → Vitest | 0:45 |
 | Plan mode | 0:45 |
-| Параллельные субагенты | 0:45 |
+| Agent Teams (экспериментально) | 1:00 |
 | /compact + self-improve + /commit | 1:00 |
 | Финал: AITracker в браузере | 1:30 |
 | Тизер Части 2 + призыв | 1:00 |
@@ -796,19 +797,49 @@ claude --plan "добавь страницу /tasks:
 > Смотришь план, правишь текстом, и только потом запускаешь выполнение.
 > Это дешевле, чем потом откатывать неправильно написанный код."
 
-**Параллельные субагенты:**
+**Agent Teams — настоящая параллельная команда:**
 
-```bash
-# Три терминала одновременно:
-claude "сгенерируй JSDoc для всех Server Actions"          # терминал 1
-claude "добавь loading states в PrioritizeButton"          # терминал 2
-claude "создай GitHub release v0.1.0 через MCP"            # терминал 3
+> "А теперь фишка, которая мало кто знает. Это экспериментально, но уже работает.
+> Agent Teams — несколько агентов Claude Code, которые работают одновременно.
+> Один ведущий, несколько исполнителей. Как настоящая команда разработки."
+
+Включаем в `.claude/settings.json`:
+
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
 ```
 
-> "Три терминала. Три задачи параллельно.
-> Один документирует, второй делает UI, третий публикует релиз.
-> Это не магия — это просто правильное использование инструмента.
-> Работает как маленькая команда."
+Запускаем:
+
+```bash
+claude "Собери команду агентов для финальной полировки AITracker.
+Создай трёх тиммейтов с непересекающимися задачами:
+- docs-agent: сгенерируй JSDoc для всех Server Actions в actions/tasks.ts
+- ui-agent: добавь loading states и skeleton в PrioritizeButton и TaskCard
+- release-agent: создай GitHub release v0.1.0 через MCP с changelog"
+```
+
+*[Показываем: три агента работают параллельно в одном терминале, Shift+Down переключение]*
+
+> "Смотри — три агента. Каждый взял свою задачу и работает независимо.
+> Пока docs-agent пишет JSDoc — ui-agent уже делает skeleton.
+> release-agent готовит changelog.
+> Это не три терминала вручную. Это координированная команда."
+
+```bash
+# Отправить сообщение конкретному агенту:
+/message ui-agent "используй shadcn/ui Skeleton, не самописный"
+
+# Broadcast всем сразу:
+/broadcast "не трогать файл prisma/schema.prisma"
+```
+
+> "Важно: каждому агенту даём задачи с чёткими границами — разные файлы, без пересечений.
+> Иначе они начнут конфликтовать. 3-5 агентов, 5-6 задач каждому — оптимально."
 
 ---
 
@@ -904,6 +935,13 @@ claude --output-format json  # JSON вывод для скриптов
 CLAUDE.md в /bot/      # локальный контекст для модуля
 PreToolUse hook        # проверка ПЕРЕД выполнением команды
 --agent для ревью      # специализация вместо универсала
+
+# Agent Teams (экспериментально):
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1  # включить в settings.json
+/message [teammate]    # написать конкретному агенту
+/broadcast             # написать всем агентам сразу
+Shift+Down             # переключаться между агентами
+"Clean up the team"    # закрыть команду по завершении
 ```
 
 ---
@@ -947,7 +985,7 @@ PreToolUse hook        # проверка ПЕРЕД выполнением ко
 | security-reviewer | Экран | Вывод + hook сработал |
 | test-writer | Экран | .test.ts + результат |
 | Plan mode | Экран | План вывод |
-| Параллельные | Экран | 3 терминала тайлом |
+| Agent Teams | Экран | Терминал с тремя агентами, /message, /broadcast |
 | /compact | Экран | Терминал |
 | Self-improve | Экран | CLAUDE.md после |
 | Финал | Экран | AITracker в браузере |
